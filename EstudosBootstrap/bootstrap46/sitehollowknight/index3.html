@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Document</title>
+
+    <style>
+        * {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .texto p {
+            text-align: justify;
+            width: 100%;
+            font-size: 20px;
+            line-height: 2;
+        }
+
+        .iframe {
+            display: flex;
+            flex-direction: column;
+            width: 600px;
+            height: 400px;
+            float: right;
+            margin: 20px;
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+
+<body class="d-flex flex-column justify-content-between"
+    style="height: 100vh; background-image: url(Imagens/HK_Background3.png); background-position: center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+
+    <div class="container-fluid d-flex justify-content-center p-5 mt-5">
+    </div>
+
+    <header
+        class=" navbar-expand-lg navbar-light d-flex flex-column justify-content-end align-items-end fixed-top scrolled"
+        style="background-color: #1f1f1fbe;backdrop-filter: blur(5px);">
+        <div class="Header_sup">
+            <div class="header_lado">
+                <a href="index3.html" class="Cadastrar btn btn-outline-light rounded-pill">Cadastrar</a>
+                <img class="rounded-circle m-2" src="Imagens/Avatar_icon2.jpg" style="width: 40px;" alt="Icon">
+            </div>
+        </div>
+        <nav class="container-fluid d-flex justify-content-around" style="background-color: black;">
+            <a href="index.html"><button class="btn btn-outline-light rounded-pill border-0">Pagina_inicial</button></a>
+            <a href="index2.html"><button class="btn btn-outline-light rounded-pill border-0">Recordes</button></a>
+            <a href="index3.html"><button class="btn btn-outline-light rounded-pill border-0">Inscrever-se</button></a>
+        </nav>
+    </header>
+    <div class="container-sm px-5">
+        <div class="container-sm p-5 my-5 w-50"
+            style="border: 2px solid #414141;background-color: #1f1f1fbe;backdrop-filter: blur(5px);">
+
+            <div class="container">
+                <div class="titulo d-flex justify-content-center">
+                    <h1 class="text-align-center text-white">Inscrever-se</h1>
+                </div>
+            </div>
+            <div class="container2">
+                <form class="contact-form d-flex flex-column text-white">
+
+                    <div class="input-group-prepend">
+                    </div>
+                    <label class="m-0 p-0" for="nome">Nome</label>
+                    <input type="text"
+                        class="text-white form-control mb-4 bg-transparent border-left-0 border-right-0 border-top-0 rounded-0"
+                        placeholder="Nome Completo" aria-label="Nome" aria-describedby="addon-wrapping">
+
+                    <label class="m-0 p-0" for="nome">Email</label>
+                    <input type="text"
+                        class="text-white form-control mb-4 bg-transparent border-left-0 border-right-0 border-top-0 rounded-0"
+                        placeholder="exemplo@email.com" aria-label="Email" aria-describedby="addon-wrapping">
+
+                    <label class="m-0 p-0" for="nome">Cpf</label>
+                    <input type="text"
+                        class="text-white form-control mb-4 bg-transparent border-left-0 border-right-0 border-top-0 rounded-0"
+                        placeholder="000.000.000-00" aria-label="Nome" aria-describedby="addon-wrapping">
+
+                    <label class="m-0 p-0" for="nome">Data de Nascimento</label>
+                    <input type="date"
+                        class="text-white form-control mb-4 bg-transparent border-left-0 border-right-0 border-top-0 rounded-0"
+                        aria-label="Nome" aria-describedby="addon-wrapping">
+
+                    <label class="m-0 p-0" for="nome">Sexo</label>
+                    <div class="container-sm px-5 mb-3 d-flex justify-content-around">
+                        <div>
+                            <label class="mr-3 p-0" for="nome">Masculino</label>
+                            <input type="radio" name="Sexo" aria-label="Radio button for following text input">
+                        </div>
+                        <div>
+                            <label class="mr-3 p-0" for="nome">Feminino</label>
+                            <input type="radio" name="Sexo" aria-label="Radio button for following text input">
+                        </div>
+                    </div>
+
+                    <label class="m-0 p-0" for="nome">Por que quer entrar para o fã-clube?</label>
+                    <textarea class="text-white form-control mb-4 pb-5 bg-transparent" aria-label="With textarea"
+                        placeholder="Mensagem"></textarea>
+
+                    <div class="mb-4">
+                        <label class="mx-3 p-0" for="nome">Desejo Participar</label>
+                        <input type="checkbox" name="Sexo" aria-label="Radio button for following text input">
+                    </div>
+
+                    <div class="d-flex justify-content-around">
+                        <a href="Pagina_inscrever.html"><button type="reset"
+                                class="btn btn-outline-danger rounded-pill px-5">Limpar</button>
+                        </a>
+                        <a href="Pagina_inscrever.html"><button
+                                class="btn btn-outline-light rounded-pill px-5">Enviar</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="p-5 d-flex justify-content-center"
+        style="background-color: black; box-shadow: 0px 5px 12px 20px black;">
+        <p class="text-white text-align-center">copyright © ADS2025</p>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+</html>

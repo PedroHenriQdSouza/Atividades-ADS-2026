@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Document</title>
+
+    <style>
+        * {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .texto p {
+            text-align: justify;
+            width: 100%;
+            font-size: 20px;
+            line-height: 2;
+        }
+
+        .iframe {
+            display: flex;
+            flex-direction: column;
+            width: 600px;
+            height: 400px;
+            float: right;
+            margin: 20px;
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+
+<body class="d-flex flex-column justify-content-between"
+    style="height: 100vh; background-image: url(Imagens/HK_background2.jpg); background-position: center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+
+    <div class="container-fluid d-flex justify-content-center p-5 mt-5">
+        <img class="mt-5" src="Imagens/Hollow Knight titulo.webp" style="width: 50%;" alt="Hollow Knight">
+    </div>
+
+    <header
+        class=" navbar-expand-lg navbar-light d-flex flex-column justify-content-end align-items-end fixed-top scrolled"
+        style="background-color: #1f1f1fbe;backdrop-filter: blur(5px);">
+        <div class="Header_sup">
+            <div class="header_lado">
+                <a href="index3.html" class="Cadastrar btn btn-outline-light rounded-pill">Cadastrar</a>
+                <img class="rounded-circle m-2" src="Imagens/Avatar_icon2.jpg" style="width: 40px;" alt="Icon">
+            </div>
+        </div>
+        <nav class="container-fluid d-flex justify-content-around" style="background-color: black;">
+            <a href="index.html"><button class="btn btn-outline-light rounded-pill border-0">Pagina_inicial</button></a>
+            <a href="index2.html"><button class="btn btn-outline-light rounded-pill border-0">Recordes</button></a>
+            <a href="index3.html"><button class="btn btn-outline-light rounded-pill border-0">Inscrever-se</button></a>
+        </nav>
+    </header>
+
+    <div class="container p-5 my-5"
+        style="border: 2px solid #414141;background-color: #1f1f1fbe;backdrop-filter: blur(5px);">
+
+        <div class="container">
+            <div class="titulo d-flex justify-content-center">
+                <h1 class="text-align-center text-white mb-5">Tabela de Recordes</h1>
+            </div>
+        </div>
+        <div class="container2">
+            <table class="table table-striped table-dark table-hover text-white">
+                <thead>
+                    <tr>
+
+                        <th scope="col">Player</th>
+                        <th scope="col">Tempo da speedrun</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Plataforma</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a class="text-white" href="https://youtu.be/nQdJunydzZ8">Lep</a></td>
+                        <td>30m 53s</td>
+                        <td>23/03/2025</td>
+                        <td>PC</td>
+                    </tr>
+                    <tr>
+                        <td><a class="text-white" href="https://youtu.be/IJYtaE_G9OI">LoLNebula</a></td>
+                        <td>31m 19s</td>
+                        <td>05/04/2025</td>
+                        <td>PC</td>
+                    </tr>
+                    <tr>
+                        <td><a class="text-white" href="https://youtu.be/-rqbJHLa9fM">SkateKing</a></td>
+                        <td>31m 24s</td>
+                        <td>15/07/2023</td>
+                        <td>PC</td>
+                    </tr>
+                    <tr>
+                        <td><a class="text-white" href="https://youtu.be/1PgU4amcBtU">StratSus</a></td>
+                        <td>31m 39s</td>
+                        <td>14/03/2025</td>
+                        <td>PC</td>
+                    </tr>
+                    <tr>
+                        <td><a class="text-white" href="https://youtu.be/5KSSwCc_Q6Y">JackmanMarcus</a></td>
+                        <td>31m 46s</td>
+                        <td>02/11/2023</td>
+                        <td>PC</td>
+                    </tr>
+                    <tr>
+                        <td><a class="text-white" href="https://youtu.be/vpGZ4hgLtTs">magmabob</a></td>
+                        <td>31m 49s</td>
+                        <td>02/01/2025</td>
+                        <td>PC</td>
+                    </tr>
+                    <tr>
+                        <td><a class="text-white" href="https://youtu.be/0A9w0GuOkNM">MagneticPizza</a></td>
+                        <td>31m 58s</td>
+                        <td>20/10/2024</td>
+                        <td>PC</td>
+                    </tr>
+                    <tr>
+                        <td><a class="text-white" href="https://youtu.be/dZtBBHtm2RI">JaGOAT</a></td>
+                        <td>31m 58s</td>
+                        <td>10/08/2023</td>
+                        <td>PC</td>
+                    </tr>
+                    <tr>
+                        <td><a class="text-white" href="https://youtu.be/MLlqrw-F3KE">QueenMagnolia</a></td>
+                        <td>32m 03s</td>
+                        <td>22/10/2022</td>
+                        <td>PC</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="text-white my-3 d-flex justify-content-center">Exemplo de tabela em bootstrap, clique em um nome para ser redirecionado.</p>
+        </div>
+
+    </div>
+    <footer class="p-5 d-flex justify-content-center"
+        style="background-color: black; box-shadow: 0px 5px 12px 20px black;">
+        <p class="text-white text-align-center">copyright © ADS2025</p>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+</html>
