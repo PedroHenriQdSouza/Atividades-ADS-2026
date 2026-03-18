@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Public/css/estilo.css">
+    <title>Document</title>
+</head>
+<header>
+    <div class="logo"><a href="../Public/index.html"><img src="../Public/home.png" alt=""></a></div>
+    <div class="navbar">
+        <nav>
+            <a href="../View/fabricar.php">Fabricar Carros</a>
+            <a href="../View/vender.php">Vender Carro</a>
+            <a href="../View/visualizar.php">Ver Carros</a>
+        </nav>
+    </div>
+</header>
+<div class="banner"></div>
+
+<body>
+    <div class="menu-container2">
+        <div class="menu-container">
+            <h1 class="titulo">Gerenciamento da Fabrica</h1>
+            <p>Escolha uma ação:</p>
+
+            <form action="../Controller/processa.php" method="POST">
+                <button name="acao" class="botao_menu " value="fabricar">Fabricar Carros</button>
+                <button name="acao" class="botao_menu " value="vender">Vender Carro</button>
+                <button name="acao" class="botao_menu " value="ver">Ver Carros</button>
+                <button name="acao" class="botao_menu " value="limpar_sessao">Finalizar Sessão</button>
+            </form>
+        </div>
+        <form class="form2" action='../Controller/processa.php' method='POST'>
+            <input type='hidden' name='acao' value='definir_carros'>
+            <div class="fundo">
+
+                <div class="popup">
+                    <h1 class="titulo">Quantidade de Veículos</h1>
+                    <div class="input">
+                        <label>Quantidade</label>
+                        <input type='number' name='qtdeCarros' min='1' required>
+                    </div>
+                    <div class="buttons">
+                        <button class="proximo" type='submit'>Avançar</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <footer></footer>
+</body>
+
+</html>
