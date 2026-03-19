@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18/03/2026 às 00:35
+-- Tempo de geração: 18/03/2026 às 23:25
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -21,14 +21,16 @@ SET time_zone = "+00:00";
 -- Banco de dados: `fabricadecarro`
 --
 
+use`fabricadecarro`;
+
 -- --------------------------------------------------------
 
 --
 -- Estrutura para tabela `dadosveiculo`
 --
 
-CREATE TABLE `dadosveiculo` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `dadosveiculo` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(50) NOT NULL,
   `Cor` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

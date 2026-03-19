@@ -19,11 +19,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
 
         case 'finalizar_fabricacao':
+            require_once '../Database/config.php';
+            // Pega a quantidade de carros que o usuário preencheu
+            $qtdeCarros = (int)($_POST['qtdeCarros'] ?? 0);
 
+            // Loop para salvar cada carro gerado no formulário
+            for ($i = 1; $i <= $qtdeCarros; $i++) {
+                $modelo = $_POST["modelo_{$i}"] ?? '';
+                $cor    = $_POST["cor_{$i}"] ?? '';
+
+                if (!empty($modelo) && !empty($cor)) {
+                    // Monta o array com os nomes das colunas da tabela dadosveiculo
+                    $data = array(
+                        'Nome' => $modelo,
+                        'Cor'  => $cor
+                    );
+
+                    $db->insert('dadosveiculo', $data);
+                }
+            }
             $_SESSION['realizando_fabricacao'] = $_POST;
             header('Location: ../view/finalizar_fabrica.php');
             exit;
-
         case 'vender':
 
             header('Location: ../view/vender.php');
@@ -42,6 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         case 'limpar_sessao':
 
+            require_once '../Database/config.php';
+
+
+            $db->deleteQry('TRUNCATE TABLE dadosveiculo'); //o metodo deleteQry para inserir uma função no sql
+            //TRUNCATE TABLE é um código SQL que serve para excluir todas as linhas da tabela e resetar os IDs
             session_destroy();
             header('Location: ../view/encerrar_sessao.php');
             break;

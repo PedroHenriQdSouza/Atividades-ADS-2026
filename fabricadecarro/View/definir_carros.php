@@ -13,15 +13,15 @@ $qtdeCarros = (int)($_GET['qtdeCarros'] ?? 0);
 
 <body>
     <header>
-    <div class="logo"><a href="../Public/index.html"><img src="../Public/home.png" alt=""></a></div>
-    <div class="navbar">
-        <nav>
-            <a href="../View/fabricar.php">Fabricar Carros</a>
-            <a href="../View/vender.php">Vender Carro</a>
-            <a href="../View/visualizar.php">Ver Carros</a>
-        </nav>
-    </div>
-</header>
+        <div class="logo"><a href="../Public/index.html"><img src="../Public/home.png" alt=""></a></div>
+        <div class="navbar">
+            <nav>
+                <a href="../View/fabricar.php">Fabricar Carros</a>
+                <a href="../View/vender.php">Vender Carro</a>
+                <a href="../View/visualizar.php">Ver Carros</a>
+            </nav>
+        </div>
+    </header>
     <div class="banner"></div>
     <div class="menu-container2">
         <form class="form2" action='../Controller/processa.php' method='POST'>
@@ -40,6 +40,7 @@ $qtdeCarros = (int)($_GET['qtdeCarros'] ?? 0);
                     echo '</div>';
                 }
                 ?>
+
 
             </div>
             <button type='submit' class="proximo">Fabricar</button>
