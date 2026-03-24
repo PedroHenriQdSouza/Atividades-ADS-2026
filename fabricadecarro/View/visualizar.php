@@ -2,9 +2,8 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once '../Model/Fabrica.php';
-require_once '../Model/Carro.php';
-$fabrica = unserialize($_SESSION['fabrica'] ?? serialize(new Fabrica()));
+// Importa o arquivo que conecta com o banco de dados (trazendo o $pdo e o $db)
+require_once '../Database/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -34,11 +33,18 @@ $fabrica = unserialize($_SESSION['fabrica'] ?? serialize(new Fabrica()));
         <h1>Carros da Fábrica</h1>
 
         <?php
-        if (empty($fabrica->getListaDeCarros())) {
+        $dadosVeiculo = $pdo->query("SELECT * FROM dadosveiculo");
+        // script sql para pegar todos os valores que estão na tabela dadosveículo
+        $carros = $dadosVeiculo->fetchAll(PDO::FETCH_ASSOC); // FetchAll serve para Agrupar todos os valores em uma array
+
+        // Verifica se o array de carros está vazio
+        if (empty($carros)) {
             echo "<p>Nenhum carro fabricado.</p>";
         } else {
-            foreach ($fabrica->getListaDeCarros() as $carro) {
-                echo "<p>Modelo: {$carro->getModelo()} | Cor: {$carro->getCor()}</p>";
+            // Loop foreach para cada carro que tiver na array
+            foreach ($carros as $carro) {
+
+                echo "<p>Modelo: {$carro['Nome']} | Cor: {$carro['Cor']}</p>";
             }
         }
         ?>

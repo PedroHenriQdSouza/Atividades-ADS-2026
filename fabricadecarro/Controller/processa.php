@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $data = array(
                         'Nome' => $modelo,
                         'Cor'  => $cor
+                        
                     );
 
                     $db->insert('dadosveiculo', $data);
@@ -47,7 +48,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
 
         case 'confirmar_venda':
+            require_once '../Database/config.php';
 
+            $modelo = $_POST['modelo'] ?? '';
+            $cor    = $_POST['cor'] ?? '';
+            
+            $comando_sql = "DELETE FROM dadosveiculo WHERE Nome = '$modelo' AND Cor = '$cor' LIMIT 1";
+
+            $db->deleteQry($comando_sql);
             $_SESSION['realizando_venda'] = $_POST;
             header('Location: ../view/confirma_venda.php');
             exit;
@@ -60,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'limpar_sessao':
 
             require_once '../Database/config.php';
-
 
             $db->deleteQry('TRUNCATE TABLE dadosveiculo'); //o metodo deleteQry para inserir uma função no sql
             //TRUNCATE TABLE é um código SQL que serve para excluir todas as linhas da tabela e resetar os IDs
