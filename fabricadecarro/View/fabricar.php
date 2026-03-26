@@ -38,10 +38,15 @@
             <div class="fundo">
 
                 <div class="popup">
-                    <h1 class="titulo">Quantidade de Veículos</h1>
-                    <div class="input">
-                        <label>Quantidade</label>
-                        <input type='number' name='qtdeCarros' min='1' required>
+                    <h1 class="titulo_popup">Quantidade de Veículos</h1>
+                    <div class="input-popup">
+
+                        <a class="value-control" onclick="numberInput.stepDown()" title="Decrease value" aria-label="Decrease value">-</a>
+
+                        <input class="value-input" type="number" value="1" name="qtdeCarros" id="numberInput">
+
+                        <a class="value-control" onclick="numberInput.stepUp()" title="Increase value" aria-label="Increase value">+</a>
+
                     </div>
                     <div class="buttons">
                         <button class="proximo" type='submit'>Avançar</button>
