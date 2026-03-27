@@ -51,11 +51,11 @@ if ($modelo !== '' || $cor !== '') {
     <div class="fundo">
         <div class="popup">
             <?php if (!empty($mensagem)): ?>
-                <h1 style="text-align: center;" class="titulo">⚠️ <?php echo $mensagem; ?></h1>
+                <h1 style="text-align: center;" class="titulo"><?php echo $mensagem; ?></h1>
                 <?php elseif ($sucesso): ?>
-                    <h1 style="text-align: center;" class="titulo">Carro vendido com sucesso!</h1>
+                    <h1 style="text-align: center;" class="titulo">Carro vendido com sucesso</h1>
                     <?php else: ?>
-                        <h1 style="text-align: center;" class="titulo">❌ Carro não encontrado.</h1>
+                        <h1 style="text-align: center;" class="titulo">Carro não encontrado.</h1>
                         <?php endif; ?>
 
                         <a href="../View/vender.php"><button type="return" class="voltar">Voltar</button></a>

@@ -42,14 +42,30 @@ require_once '../Database/config.php';
             echo "<p>Nenhum carro fabricado.</p>";
         } else {
             // Loop foreach para cada carro que tiver na array
-            foreach ($carros as $carro) {
+        ?>
+            <table class="titulo_tabela">
+                <thead>
+                    <tr class="titulo_col">
+                        <!--<th>Sr#</th>--->
+                        <th>ID</th> <!----nome dos campos da tabela exemplo nome  idade  e-maail da tabela crud editar e deletar--->
+                        <th>Nome do Carro</th>
+                        <th>Cor do Carro</th>
+                        <th class="text-center">Data do registro</th>
+                    </tr>
+                </thead>
 
-                echo "<p>Modelo: {$carro['Nome']} | Cor: {$carro['Cor']}</p>";
+            </table>
+            <tbody>
+
+            <?php
+            foreach ($carros as $carro) {
+                echo "<td>{$carro['Nome']}</td><td>{$carro['Cor']}<td><br>";
             }
         }
-        ?>
+            ?>
+            </tbody>
     </div>
-        <a href="../Public/index.html"><button class="voltar" type="return">Voltar</button></a>
+    <a href="../Public/index.html"><button class="voltar" type="return">Voltar</button></a>
     <footer></footer>
 </body>
 
