@@ -11,7 +11,7 @@ require_once '../Database/config.php';
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../public/css/estilo.css">
+    <link rel="stylesheet" href="../Public/css/estilo.css">
     <title>Carros da Fábrica</title>
 </head>
 
@@ -31,39 +31,39 @@ require_once '../Database/config.php';
 
     <div class="menu-container2">
         <h1>Carros da Fábrica</h1>
-
-        <?php
-        $dadosVeiculo = $pdo->query("SELECT * FROM dadosveiculo");
-        // script sql para pegar todos os valores que estão na tabela dadosveículo
-        $carros = $dadosVeiculo->fetchAll(PDO::FETCH_ASSOC); // FetchAll serve para Agrupar todos os valores em uma array
-
-        // Verifica se o array de carros está vazio
-        if (empty($carros)) {
-            echo "<p>Nenhum carro fabricado.</p>";
-        } else {
-            // Loop foreach para cada carro que tiver na array
-        ?>
-            <table class="titulo_tabela">
-                <thead>
-                    <tr class="titulo_col">
-                        <!--<th>Sr#</th>--->
-                        <th>ID</th> <!----nome dos campos da tabela exemplo nome  idade  e-maail da tabela crud editar e deletar--->
-                        <th>Nome do Carro</th>
-                        <th>Cor do Carro</th>
-                        <th class="text-center">Data do registro</th>
-                    </tr>
-                </thead>
-
-            </table>
-            <tbody>
-
+        <div class="Lista">
             <?php
-            foreach ($carros as $carro) {
-                echo "<td>{$carro['Nome']}</td><td>{$carro['Cor']}<td><br>";
-            }
-        }
+            $dadosVeiculo = $pdo->query("SELECT * FROM dadosveiculo");
+            $carros = $dadosVeiculo->fetchAll(PDO::FETCH_ASSOC);
+
+            if (empty($carros)) {
+                echo "<p>Nenhum carro fabricado.</p>";
+            } else {
             ?>
-            </tbody>
+                <table>
+                    <thead>
+                        <tr class="titulo_col">
+                            <th>ID</th>
+                            <th>Nome do Carro</th>
+                            <th>Cor do Carro</th>
+                            <th>Data do registro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($carros as $carro): ?>
+                            <tr>
+                                <td><?= $carro['id'] ?></td>
+                                <td><?= $carro['Nome'] ?></td>
+                                <td><?= $carro['Cor'] ?></td>
+                                <td><?= $carro['Data_registro'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php
+            }
+            ?>
+        </div>
     </div>
     <a href="../Public/index.html"><button class="voltar" type="return">Voltar</button></a>
     <footer></footer>

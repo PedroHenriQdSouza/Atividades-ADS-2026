@@ -2,6 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+require_once '../Database/config.php';
 require_once '../Model/Fabrica.php';
 require_once '../Model/Carro.php';
 $fabrica = unserialize($_SESSION['fabrica'] ?? serialize(new Fabrica()));
@@ -36,12 +37,34 @@ $fabrica = unserialize($_SESSION['fabrica'] ?? serialize(new Fabrica()));
         <div class="container">
             <div class="Lista">
                 <?php
-                if (empty($fabrica->getListaDeCarros())) {
+                $dadosVeiculo = $pdo->query("SELECT * FROM dadosveiculo");
+                $carros = $dadosVeiculo->fetchAll(PDO::FETCH_ASSOC);
+
+                if (empty($carros)) {
                     echo "<p>Nenhum carro fabricado.</p>";
                 } else {
-                    foreach ($fabrica->getListaDeCarros() as $carro) {
-                        echo "<p>Modelo: {$carro->getModelo()} | Cor: {$carro->getCor()}</p>";
-                    }
+                ?>
+                    <table>
+                        <thead>
+                            <tr class="titulo_col">
+                                <th>ID</th>
+                                <th>Nome do Carro</th>
+                                <th>Cor do Carro</th>
+                                <th>Data do registro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($carros as $carro): ?>
+                                <tr>
+                                    <td><?= $carro['id'] ?></td>
+                                    <td><?= $carro['Nome'] ?></td>
+                                    <td><?= $carro['Cor'] ?></td>
+                                    <td><?= $carro['Data_registro'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php
                 }
                 ?>
             </div>
