@@ -88,15 +88,16 @@
                         <a class="nav-link" href="#">Link</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <button type="button" class="nav-link dropdown-toggle bg-transparent border-0" data-bs-toggle="dropdown" aria-expanded="false">
                             Dropdown
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Opção 1</a></li>
+                            <li><a class="dropdown-item" href="#">Opção 2</a></li>
+                            <li><a class="dropdown-item" href="#">Opção 4</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Opção sozinha</a></li>
+                          </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled">Disabled</a>
@@ -175,7 +176,7 @@
                         <div class="elemento1 py-5 bg-danger m-1">1</div>
                     </div>
 
-                    <div class="col offset-md-4 ">
+                    <div class="col offset-md-4 "><!-- offset serve para pular um espaço na div -->
                         <div class="elemento1 py-5 bg-danger m-1"> offset-md-4</div>
                     </div>
                     <div class="col-sm-8">
