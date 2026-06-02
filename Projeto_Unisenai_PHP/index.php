@@ -1,6 +1,7 @@
 <?php
 include 'conexao.php';
 
+
 //Variavel usada no <title> da pagina ( header.php)
 $pageTitle = "Usuários Cadastrados";
 
@@ -118,10 +119,26 @@ while ($r = mysqli_fetch_assoc($res)){
 
   if ($canManage) {
     $id = (int) $r['id'];
+
+    $nomeAttr = htmlspecialchars($r['nome'], ENT_QUOTES, 'UTF-8');
+    $emailAttr = htmlspecialchars($r['email'], ENT_QUOTES, 'UTF-8');
+    $telefoneAttr = htmlspecialchars($r['telefone'], ENT_QUOTES, 'UTF-8');
+    $idadeAttr = htmlspecialchars((string) $r['idade'], ENT_QUOTES, 'UTF-8');
+    $cidadeAttr = htmlspecialchars($r['cidade'], ENT_QUOTES, 'UTF-8');
+    $cursoAttr = htmlspecialchars($r['curso'], ENT_QUOTES, 'UTF-8');
     $acoesHtml = "
     
-      <button type='button' class='btn btn-outline-success' data-bs-toggle='modal' id={$id} data-bs-target='#editarUsuarioModal'>
-      <i class='bi bi-pen'></i>
+      <button type='button' class='btn btn-outline-success mx-1' 
+        data-bs-toggle='modal' 
+        data-bs-target='#editarUsuarioModal' 
+        data-id='{$id}'
+        data-nome='{$nomeAttr}'
+        data-email='{$emailAttr}'
+        data-telefone='{$telefoneAttr}'
+        data-idade='{$idadeAttr}'
+        data-cidade='{$cidadeAttr}'
+        data-curso='{$cursoAttr}'>
+        <i class='bi bi-pen'></i>
       </button>|
       <a href='editar.php?id={$id}'><i class='bi bi-pencil'></i></a> |
       <a href='deletar.php?id={$id}' onclick='return confirm(\"Tem certeza que deseja excluir?\")'><i class='bi bi-trash3'></i></a>
@@ -193,7 +210,7 @@ if (isset($stmt)) {
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
           <button type="submit" class="btn btn-primary">
-            <i class="bi bi-check2-circle me-1"></i>Salvar usuário
+            <i class="bi bi-check2-circle me-1"></i>Adicionar usuário
           </button>
         </div>
       </form>
@@ -204,8 +221,6 @@ if (isset($stmt)) {
 
 <!-- MODAL EDITAR -->
 
-$res = mysqli_query($conn, "SELECT * FROM usuarios WHERE id = $id");
-$dados = mysqli_fetch_assoc($res);
 <div class="modal fade" id="editarUsuarioModal" tabindex="-1" aria-labelledby="editarUsuarioModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
     <div class="modal-content">
@@ -215,40 +230,77 @@ $dados = mysqli_fetch_assoc($res);
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
-      <form method="POST" action="salvar.php" id="editarUsuarioFormModal">
+      
+      <form method="POST" action="atualizar.php" id="editarUsuarioFormModal">
         <div class="modal-body">
-        <input type="hidden" name="id" value="<?php echo $dados['id']; ?>">
-
-Nome: <br>
-<input type="text" name="nome" value="<?php echo $dados['nome']; ?>"><br><br>
-
-Email: <br>
-<input type="email" name="email" value="<?php echo $dados['email']; ?>"><br><br>
-
-Telefone: <br>
-<input type="text" name="telefone" value="<?php echo $dados['telefone']; ?>"><br><br>
-
-Idade: <br>
-<input type="number" name="idade" value="<?php echo $dados['idade']; ?>"><br><br>
-
-Cidade: <br>
-<input type="text" name="cidade" value="<?php echo $dados['cidade']; ?>"><br><br>
-
-Curso: <br>
-<input type="text" name="curso" value="<?php echo $dados['curso']; ?>"><br><br>
-
-<button type="submit">Atualizar</button>
+          <div class="row g-3">
+          
+            <input type="hidden" name="id" id="edit-id">
+            <div class="col-12">
+              Nome: <br>
+              <input class="form-control" type="text" name="nome" id="edit-nome"><br><br>
+            </div>
+            <div class="col-6">
+              Email: <br>
+              <input class="form-control"  type="email" name="email" id="edit-email"><br><br>
+            </div>
+            <div class="col-6">
+              Telefone: <br>
+              <input class="form-control"  type="text" name="telefone" id="edit-telefone"><br><br>
+            </div>
+            <div class="col-4">
+              Idade: <br>
+              <input class="form-control"  type="number" name="idade" id="edit-idade"><br><br>
+            </div>
+            <div class="col-4">
+              Cidade: <br>
+              <input class="form-control"  type="text" name="cidade" id="edit-cidade"><br><br>
+            </div>
+            <div class="col-4">
+              Curso: <br>
+              <input class="form-control"  type="text" name="curso" id="edit-curso"><br><br>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
           <button type="submit" class="btn btn-primary">
-            <i class="bi bi-check2-circle me-1"></i>Editar usuário
+            <i class="bi bi-check2-circle me-1"></i>Atualizar usuário
           </button>
         </div>
       </form>
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var editarModal = document.getElementById('editarUsuarioModal');
+    
+    editarModal.addEventListener('show.bs.modal', function (event) {
+      // O botão que acionou o modal
+      var button = event.relatedTarget;
+
+      // Extraindo as informações dos atributos data-*
+      var id = button.getAttribute('data-id');
+      var nome = button.getAttribute('data-nome');
+      var email = button.getAttribute('data-email');
+      var telefone = button.getAttribute('data-telefone');
+      var idade = button.getAttribute('data-idade');
+      var cidade = button.getAttribute('data-cidade');
+      var curso = button.getAttribute('data-curso');
+
+      // Atualizando os inputs dentro do modal
+      editarModal.querySelector('#edit-id').value = id;
+      editarModal.querySelector('#edit-nome').value = nome;
+      editarModal.querySelector('#edit-email').value = email;
+      editarModal.querySelector('#edit-telefone').value = telefone;
+      editarModal.querySelector('#edit-idade').value = idade;
+      editarModal.querySelector('#edit-cidade').value = cidade;
+      editarModal.querySelector('#edit-curso').value = curso;
+    });
+  });
+</script>
 
 <script>
   (function () {
