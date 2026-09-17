@@ -382,11 +382,11 @@ index.js
 
 Marque:
 
-- [ ] `src/routes/index.js` existe com a rota `/health`
-- [ ] `src/app.js` existe com os 6 `app.use` na ordem correta
-- [ ] `src/server.js` existe e chama `connectWithRetry()` antes de `app.listen()`
-- [ ] Em `app.js`, `express.json()` vem **antes** de `app.use("/api", routes)`
-- [ ] Em `app.js`, `errorHandler` é o **último**
+- [x] `src/routes/index.js` existe com a rota `/health`
+- [x] `src/app.js` existe com os 6 `app.use` na ordem correta
+- [x] `src/server.js` existe e chama `connectWithRetry()` antes de `app.listen()`
+- [x] Em `app.js`, `express.json()` vem **antes** de `app.use("/api", routes)`
+- [x] Em `app.js`, `errorHandler` é o **último**
 
 ### Contagem de arquivos
 

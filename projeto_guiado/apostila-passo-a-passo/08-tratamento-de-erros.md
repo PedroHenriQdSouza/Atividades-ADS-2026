@@ -12,7 +12,7 @@ Criar os quatro arquivos que formam a **base de tratamento de erros** do projeto
 
 ## Antes de começar
 
-- [ ] Etapa 07 concluída (`config/env.js` e `config/database.js` criados)
+- [x] Etapa 07 concluída (`config/env.js` e `config/database.js` criados)
 
 ---
 
@@ -361,12 +361,12 @@ async-handler.js  error-handler.js  parse-id.js
 
 Marque:
 
-- [ ] `app-error.js` exporta 3 classes
-- [ ] `async-handler.js` exporta `asyncHandler`
-- [ ] `error-handler.js` exporta `notFoundHandler` e `errorHandler`
-- [ ] O `errorHandler` tem **4 parâmetros**
-- [ ] `parse-id.js` exporta `parseId`
-- [ ] Os imports usam `../errors/app-error.js` (dois pontos para subir uma pasta)
+- [x] `app-error.js` exporta 3 classes
+- [x] `async-handler.js` exporta `asyncHandler`
+- [x] `error-handler.js` exporta `notFoundHandler` e `errorHandler`
+- [x] O `errorHandler` tem **4 parâmetros**
+- [x] `parse-id.js` exporta `parseId`
+- [x] Os imports usam `../errors/app-error.js` (dois pontos para subir uma pasta)
 
 ---
 

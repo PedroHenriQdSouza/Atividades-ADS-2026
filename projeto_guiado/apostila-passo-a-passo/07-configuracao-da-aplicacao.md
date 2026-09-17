@@ -255,7 +255,7 @@ Abrir uma conexão com banco é **caro**: leva tempo, gasta memória dos dois la
      +--------------------------------------------------+
         ^         |
         |         v
-   devolve    empresta
+     devolve  empresta
         |         |
      +--------------------+
      |   sua requisição   |
@@ -356,11 +356,11 @@ database.js  env.js
 
 Marque:
 
-- [ ] `src/config/env.js` existe e exporta `env`
-- [ ] `src/config/database.js` existe e exporta `pool` e `connectWithRetry`
-- [ ] O import é `mysql2/promise` (com `/promise`)
-- [ ] Todos os imports terminam com `.js` (ex.: `"./env.js"`)
-- [ ] O VS Code não mostra erros vermelhos
+- [x] `src/config/env.js` existe e exporta `env`
+- [x] `src/config/database.js` existe e exporta `pool` e `connectWithRetry`
+- [x] O import é `mysql2/promise` (com `/promise`)
+- [x] Todos os imports terminam com `.js` (ex.: `"./env.js"`)
+- [x] O VS Code não mostra erros vermelhos
 
 > ⚠️ **Ainda não dá para testar.** Estes arquivos não fazem nada sozinhos — são bibliotecas. Vamos usá-los na Etapa 09.
 

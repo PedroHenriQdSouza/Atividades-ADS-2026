@@ -1,5 +1,5 @@
-# Etapa 10 — Primeira execução 🚀
 
+# Etapa 10 — Primeira execução 🚀
 📋 **Tipo:** prática (terminal)
 
 ---
@@ -20,27 +20,27 @@ Confira a lista completa. Você deve ter **14 arquivos**:
 ls -a
 ```
 
-- [ ] `.dockerignore`
-- [ ] `.env`
-- [ ] `.env.example`
-- [ ] `.gitignore`
-- [ ] `Dockerfile`
-- [ ] `docker-compose.yml`
-- [ ] `package.json`
-- [ ] `database/init.sql`
-- [ ] `src/app.js`
-- [ ] `src/server.js`
-- [ ] `src/config/env.js`
-- [ ] `src/config/database.js`
-- [ ] `src/routes/index.js`
-- [ ] `src/shared/errors/app-error.js`
-- [ ] `src/shared/http/async-handler.js`
-- [ ] `src/shared/http/error-handler.js`
-- [ ] `src/shared/http/parse-id.js`
+- [x] `.dockerignore`
+- [x] `.env`
+- [x] `.env.example`
+- [x] `.gitignore`
+- [x] `Dockerfile`
+- [x] `docker-compose.yml`
+- [x] `package.json`
+- [x] `database/init.sql`
+- [x] `src/app.js`
+- [x] `src/server.js`
+- [x] `src/config/env.js`
+- [x] `src/config/database.js`
+- [x] `src/routes/index.js`
+- [x] `src/shared/errors/app-error.js`
+- [x] `src/shared/http/async-handler.js`
+- [x] `src/shared/http/error-handler.js`
+- [x] `src/shared/http/parse-id.js`
 
 E, muito importante:
 
-- [ ] 🐳 **O Docker Desktop está aberto** (baleia parada na barra de tarefas)
+- [x] 🐳 **O Docker Desktop está aberto** (baleia parada na barra de tarefas)
 
 ---
 
@@ -485,12 +485,12 @@ Isso apaga os containers, o volume e reconstrói tudo. Os dados de exemplo volta
 
 ## ✅ Confira se deu certo
 
-- [ ] `docker compose ps` mostra os **dois** containers como `Up`
-- [ ] O banco aparece como `(healthy)`
-- [ ] `http://localhost:3000/api/health` responde JSON no navegador
-- [ ] `curl http://localhost:3000/api/naoexiste` devolve o erro 404 em JSON
-- [ ] `SHOW TABLES;` no MySQL lista as 3 tabelas
-- [ ] `SELECT * FROM products;` mostra 7 produtos
+- [x] `docker compose ps` mostra os **dois** containers como `Up`
+- [x] O banco aparece como `(healthy)`
+- [x] `http://localhost:3000/api/health` responde JSON no navegador
+- [x] `curl http://localhost:3000/api/naoexiste` devolve o erro 404 em JSON
+- [x] `SHOW TABLES;` no MySQL lista as 3 tabelas
+- [x] `SELECT * FROM products;` mostra 7 produtos
 - [ ] Ao salvar um arquivo `.js`, o log mostra `Restarting`
 
 **Se os 7 itens estão marcados, sua infraestrutura está pronta.** A partir daqui é só JavaScript.
